@@ -1,0 +1,25 @@
+{
+  "name": "friend-finder",
+  "version": "1.0.0",
+  "description": "UCSD Coding Bootcamp HW Assignment 10",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quells/ucsd0725-Friend-Finder.git"
+  },
+  "author": "Kai Wells",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quells/ucsd0725-Friend-Finder/issues"
+  },
+  "homepage": "https://github.com/quells/ucsd0725-Friend-Finder#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "protobufjs": "~6.8.0"
+  }
+}
