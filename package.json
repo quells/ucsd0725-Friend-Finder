@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/quells/ucsd0725-Friend-Finder#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.11",
