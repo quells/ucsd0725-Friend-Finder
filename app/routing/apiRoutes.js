@@ -1,7 +1,8 @@
 const express = require("express")
 var router = express.Router()
 
-router.get("/hello", (req, res) => {
+router.post("/submit_survey", (req, res) => {
+    console.log(req.body)
     res.json({hello: "world"})
     res.end()
 })

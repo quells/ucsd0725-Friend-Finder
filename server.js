@@ -14,6 +14,9 @@ app.set("view engine", "handlebars")
 
 app.use("/api", require("./app/routing/apiRoutes"))
 app.use("/", require("./app/routing/webRoutes"))
+app.use((req, res) => {
+    res.render("index")
+})
 
 const url = "http://localhost"
 app.listen(PORT, () => console.log(`App listening at ${url}:${PORT}`))
