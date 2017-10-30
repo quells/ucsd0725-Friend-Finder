@@ -13,7 +13,7 @@ app.engine("handlebars", exphbs({defaultLayout: "main"}))
 app.set("view engine", "handlebars")
 
 app.use("/api", require("./app/routing/apiRoutes"))
-app.use("/", require("./app/routing/htmlRoutes"))
+app.use("/", require("./app/routing/webRoutes"))
 
 const url = "http://localhost"
 app.listen(PORT, () => console.log(`App listening at ${url}:${PORT}`))
