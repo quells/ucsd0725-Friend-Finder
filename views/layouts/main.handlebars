@@ -3,29 +3,37 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 		<link rel="stylesheet" href="/assets/css/style.css">
 		<title>Friend Finder</title>
 	</head>
 	<body>
 		<header>
-			<nav class="pure-menu pure-menu-horizontal pure-menu-fixed">
-				<div class="container">
-					<a href="/" class="pure-menu-heading pure-menu-link">Friend Finder</a>
-					<ul class="pure-menu-list">
-						<li class="pure-menu-item"><a href="/survey" class="pure-menu-link">Take the Survey</a></li>
+			<nav class="indigo darken-1">
+				<div class="nav-wrapper container">
+					<a href="/" class="brand-logo">Friend Finder</a>
+					<ul class="right hide-on-med-and-down">
+						<li><a href="/survey">Take the Survey</a></li>
 					</ul>
-					<div class="clear"></div>
 				</div>
 			</nav>
 		</header>
 
-		<main>
-		    {{{ body }}}
+		<main class="container">
+			{{{ body }}}
 		</main>
 
-		<footer class="container footer">
-			&copy; 2017 Kai Wells
+		<footer class="page-footer indigo darken-1">
+			<div class="container">
+				<h5 class="white-text">About Friend Finder</h5>
+				<p class="grey-text text-lighten-4">Friend Finder is a free service for finding folks with similar interests.</p>
+			</div>
+			<div class="footer-copyright indigo darken-3">
+				<div class="container">
+					&copy; 2017 Kai Wells
+					<a href="https://github.com/quells/ucsd0725-Friend-Finder" target="_blank" class="grey-text text-lighten-4 right">Fork Me on GitHub!</a>
+				</div>
+			</div>
 		</footer>
 	</body>
 </html>
