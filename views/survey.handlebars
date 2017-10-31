@@ -1,6 +1,7 @@
-<h3>Compatibility Survey</h3>
+<h3 class="center-align">Compatibility Survey</h3>
 <div class="row">
-    <form class="col s12" action="/api/submit_survey" method="post" id="surveyForm">
+    <div class="col s0 m1 l2 xl3"></div>
+    <form class="col s12 m10 l8 xl6" action="/api/submit_survey" method="post" id="surveyForm">
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
@@ -9,23 +10,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12 m8">
-                <input type="text" name="userImage" value="" class="hide" id="userImage" />
-                <a href="#" class="waves-effect waves-light btn" id="imageURL">
-                    <i class="material-icons left">cloud</i>Use URL
-                </a>
-                <!-- <a href="#" class="waves-effect waves-light btn" id="imageUpload">
-                    <i class="material-icons left">cloud_upload</i>Upload Image
-                </a> -->
-                <input type="file" name="imageUpload" class="waves-effect waves-light btn" id="imageUpload" />
-            </div>
-            <div class="input-field right-align-on-med-and-up col s12 m4">
-                <span class="flow-text">No Image Chosen</span>
+            <div class="input-field col s12">
+                <input type="text" name="userImage" class="" id="userImage" placeholder="Enter a URL for a profile image" />
+                <label for="userImage">Your Profile Image</label>
             </div>
         </div>
         {{#each questions}}
         <div class="row">
-            <div class="col s12 m6">
+            <div class="col s12">
                 <p>{{this}}</p>
                 <p class="range-field">
                     <input type="range" name="q{{@index}}" value="3" min="1" max="5">
@@ -42,15 +34,20 @@
 </div>
 <script type="text/javascript">
 $(function() {
-    var userImageInput = $("#userImage");
+    var userNameField = $("#userName");
+    var userImageField = $("#userImage");
 
-    $("#imageURL").click(function() {
-
+    userImageField.on("change", function() {
+        userImageField.attr("class", "");
+        console.log(userImageField.val())
+        $.get(userImageField.val(), function(response) {
+            console.log(response)
+        })
     });
 
     $("#submitSurvey").click(function(e) {
         e.preventDefault();
-        if ($("#userName").val().length < 1) {
+        if (userNameField.val().length < 1) {
             alert("Please enter your name.")
             return
         }
@@ -59,6 +56,8 @@ $(function() {
             url: "/api/submit_survey",
             data: $("#surveyForm").serialize(),
             success: function(data) {
+                $("#surveyForm").find("input").prop("disabled", true)
+                $("#surveyForm").find("button").prop("disabled", true)
                 console.log(data)
             }
         });
