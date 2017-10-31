@@ -4,7 +4,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
-                <input type="text" name="userName" class="validate" />
+                <input type="text" name="userName" class="validate" id="userName" />
                 <label for="userName">Your Name</label>
             </div>
         </div>
@@ -14,9 +14,10 @@
                 <a href="#" class="waves-effect waves-light btn" id="imageURL">
                     <i class="material-icons left">cloud</i>Use URL
                 </a>
-                <a href="#" class="waves-effect waves-light btn" id="imageUpload">
+                <!-- <a href="#" class="waves-effect waves-light btn" id="imageUpload">
                     <i class="material-icons left">cloud_upload</i>Upload Image
-                </a>
+                </a> -->
+                <input type="file" name="imageUpload" class="waves-effect waves-light btn" id="imageUpload" />
             </div>
             <div class="input-field right-align-on-med-and-up col s12 m4">
                 <span class="flow-text">No Image Chosen</span>
@@ -48,7 +49,11 @@ $(function() {
     });
 
     $("#submitSurvey").click(function(e) {
-        e.preventDefault()
+        e.preventDefault();
+        if ($("#userName").val().length < 1) {
+            alert("Please enter your name.")
+            return
+        }
         $.ajax({
             type: "POST",
             url: "/api/submit_survey",
