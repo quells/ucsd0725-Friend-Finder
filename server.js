@@ -18,5 +18,11 @@ app.use((req, res) => {
     res.render("index")
 })
 
-const url = "http://localhost"
-app.listen(PORT, () => console.log(`App listening at ${url}:${PORT}`))
+var db = require("./app/data")
+db.users.LoadUsers((err) => {
+    if (err) {
+        console.error(err)
+    } else {
+        app.listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`))
+    }
+})

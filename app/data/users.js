@@ -22,7 +22,7 @@ function loadUsers(callback) {
                         _users[i] = {
                             name: row[0],
                             image: row[1],
-                            answers: row.slice(2)
+                            answers: row.slice(2).map(Number)
                         }
                     }
                     callback(null)
@@ -49,7 +49,34 @@ function saveUsers(callback) {
     })
 }
 
+function addUser(user) {
+    _users.push(user)
+    console.log(_users)
+}
+
+function matchUser(user) {
+    var matchIndex = 0
+    var matchValue = 999
+    for (var i = 0; i < _users.length; i++) {
+        var user_i = _users[i]
+        var value_i = 0
+        for (var j = 0; j < user.answers.length; j++) {
+            value_i += Math.abs(user.answers[j] - user_i.answers[i])
+        }
+        if (value_i < matchValue) {
+            matchIndex = i
+            matchValue = value_i
+        }
+    }
+    return {
+        closestMatch: _users[matchIndex],
+        matchScore: matchValue
+    }
+}
+
 module.exports = {
     LoadUsers: loadUsers,
     SaveUsers: saveUsers,
+    AddUser: addUser,
+    MatchUser: matchUser,
 }

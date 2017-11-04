@@ -11,3 +11,12 @@ main {
 .input-field i.prefix {
     margin-top: 8px;
 }
+
+#matchImage {
+    max-height: 256px;
+    border-radius: 100%;
+}
+
+#matchNoImage {
+    font-size: 12rem;
+}
