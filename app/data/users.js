@@ -51,7 +51,6 @@ function saveUsers(callback) {
 
 function addUser(user) {
     _users.push(user)
-    console.log(_users)
 }
 
 function matchUser(user) {
